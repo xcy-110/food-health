@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>食光机 - AI智能食品健康助手 | 拍照识别食物·营养分析·饮食建议</title>
+  <meta name="description" content="食光机是一款AI驱动的食品健康助手，支持拍照识别食物、智能营养成分分析、个性化饮食建议。基于大模型技术，为你的每一餐提供专业的营养指导。">
+  <meta name="keywords" content="食品健康,AI营养分析,食物识别,拍照识别食物,营养成分,饮食建议,健康饮食,营养师,卡路里计算,食物热量,减脂饮食,AI食物分析">
+  <meta name="author" content="食光机">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph / 社交分享 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="食光机 - AI智能食品健康助手">
+  <meta property="og:description" content="拍一拍、问一问，AI即刻为你分析食物营养成分，提供专业饮食建议。">
+  <meta property="og:site_name" content="食光机">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="食光机 - AI智能食品健康助手">
+  <meta name="twitter:description" content="拍一拍、问一问，AI即刻为你分析食物营养成分，提供专业饮食建议。">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥦</text></svg>">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- 结构化数据 JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "食光机",
+    "description": "AI驱动的食品健康助手，支持拍照识别食物、智能营养成分分析、个性化饮食建议",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    },
+    "featureList": [
+      "AI食物拍照识别",
+      "营养成分分析",
+      "智能饮食问答",
+      "个性化饮食建议"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "食光机是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "食光机是一款AI驱动的食品健康助手，用户可以通过拍照或文字提问的方式，获得专业的食物营养分析和个性化饮食建议。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何使用食光机分析食物？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "只需三步：1. 上传食物照片或输入问题；2. AI智能分析食物营养成分；3. 获取详细营养报告和饮食建议。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Navigation -->
+  <header>
+  <nav class="navbar" aria-label="主导航">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" fill="#2D8653" opacity="0.15"/>
+          <path d="M16 6C12 6 9 9 9 13c0 3 1.5 5 4 6.5V24a3 3 0 006 0v-4.5c2.5-1.5 4-3.5 4-6.5 0-4-3-7-7-7z" fill="#2D8653"/>
+          <path d="M14 13a2 2 0 104 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        食光机
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">首页</a>
+        <a href="chat.html" class="nav-link">AI助手</a>
+        <button class="nav-btn" id="openSettingsBtn" title="设置">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+  <!-- Hero Section -->
+  <section class="hero" aria-label="介绍">
+    <div class="container hero-content">
+      <h1>用AI守护你的<span>饮食健康</span></h1>
+      <p>拍一拍、问一问，即刻获得专业的食品营养分析和个性化饮食建议。让AI成为你的私人营养顾问。</p>
+      <a href="chat.html" class="btn btn-primary btn-lg">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+        开始AI食物分析
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" aria-label="核心功能">
+    <div class="container">
+      <div class="section-title">
+        <h2>核心功能</h2>
+        <p>多维度AI驱动的食品健康分析</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon green">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-4"/>
+            </svg>
+          </div>
+          <h3>营养成分分析</h3>
+          <p>AI智能识别食物并详细分析热量、蛋白质、脂肪、碳水化合物等核心营养指标，帮你科学管理饮食。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon orange">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h3>智能问答</h3>
+          <p>有任何饮食健康疑问？直接提问即可获得专业的AI营养师回答，从食物搭配到饮食禁忌，全面解答。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <h3>拍照识别</h3>
+          <p>拍下食物照片，AI即刻识别食材种类，自动生成营养报告和健康评估，让每一餐都心中有数。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="section" aria-label="使用步骤" style="background: linear-gradient(180deg, #F5F9F7 0%, #FAFAF8 100%);">
+    <div class="container">
+      <div class="section-title">
+        <h2>简单三步，开启健康饮食</h2>
+        <p>无需注册，即开即用</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>上传或提问</h3>
+            <p>拍摄食物照片或输入你的饮食健康问题</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>AI智能分析</h3>
+            <p>大模型快速识别食物、分析营养成分</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>获取建议</h3>
+            <p>收到详细的营养报告和个性化饮食建议</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="section" aria-label="健康小贴士">
+    <div class="container">
+      <div class="section-title">
+        <h2>健康饮食小贴士</h2>
+        <p>来自营养学的实用建议</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h4>均衡膳食</h4>
+          <p>每日饮食应包含谷薯类、蔬菜水果、畜禽鱼蛋奶、大豆坚果等多种食物，建议每天摄入12种以上食物。</p>
+        </div>
+        <div class="tip-card">
+          <h4>控制糖盐油</h4>
+          <p>成人每日食盐不超过5克，烹调油25-30克，添加糖不超过50克。少吃高盐、高糖和油炸食品。</p>
+        </div>
+        <div class="tip-card">
+          <h4>足量饮水</h4>
+          <p>成年人每日饮水量应达到1500-1700毫升，提倡饮用白开水或茶水，少喝含糖饮料。</p>
+        </div>
+        <div class="tip-card">
+          <h4>规律进餐</h4>
+          <p>一日三餐，定时定量。早餐提供全天25%-30%能量，午餐30%-40%，晚餐30%-35%。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>食光机 - AI智能食品健康助手 | 仅供参考，不构成医疗建议</p>
+    </div>
+  </footer>
+
+  <!-- Config Modal -->
+  <div class="modal-overlay" id="configModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>API 配置</h3>
+        <button class="modal-close" id="closeModalBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">快捷预设</label>
+          <select class="form-select" id="presetSelect">
+            <option value="">自定义配置</option>
+            <option value="openai">OpenAI</option>
+            <option value="deepseek">DeepSeek</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">API 地址</label>
+          <input type="text" class="form-input" id="apiUrlInput" placeholder="https://api.openai.com/v1/chat/completions">
+        </div>
+        <div class="form-group">
+          <label class="form-label">模型名称</label>
+          <input type="text" class="form-input" id="modelInput" placeholder="gpt-4o">
+        </div>
+        <div class="form-group">
+          <label class="form-label">API Key</label>
+          <div class="form-input-group">
+            <input type="password" class="form-input" id="apiKeyInput" placeholder="sk-...">
+            <button class="form-input-toggle" id="toggleKeyBtn" title="显示/隐藏">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <p class="form-hint">API Key 仅存储在本地浏览器中，请勿在公共设备使用</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="testConnBtn">测试连接</button>
+        <button class="btn btn-primary" id="saveConfigBtn">保存配置</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/config.js"></script>
+</body>
+</html>

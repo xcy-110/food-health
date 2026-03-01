@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AI食物助手 - 食光机 | 拍照识别·智能问答·营养分析</title>
+  <meta name="description" content="食光机AI食物助手，支持拍照识别食物、文字提问获取营养分析和饮食建议。基于大模型的智能食品健康顾问。">
+  <meta name="keywords" content="AI食物助手,食物识别,营养分析,饮食建议,健康问答,食品AI,拍照识别,营养成分查询">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/chat.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI食物助手 - 食光机">
+  <meta property="og:description" content="拍照或提问，AI即刻为你分析食物营养成分，提供专业饮食建议。">
+  <meta property="og:site_name" content="食光机">
+  <meta property="og:locale" content="zh_CN">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥦</text></svg>">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body class="chat-page">
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" fill="#2D8653" opacity="0.15"/>
+          <path d="M16 6C12 6 9 9 9 13c0 3 1.5 5 4 6.5V24a3 3 0 006 0v-4.5c2.5-1.5 4-3.5 4-6.5 0-4-3-7-7-7z" fill="#2D8653"/>
+          <path d="M14 13a2 2 0 104 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        食光机
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="chat.html" class="nav-link active">AI助手</a>
+        <button class="nav-btn" id="openSettingsBtn" title="设置">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Chat Container -->
+  <div class="chat-container">
+    <!-- Messages Area -->
+    <div class="messages-area" id="messagesArea">
+      <!-- Welcome Screen -->
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-icon">🥦</div>
+        <h2>你好，我是食光机AI助手</h2>
+        <p>我可以帮你分析食物营养成分、回答饮食健康问题。试试输入文字或上传食物照片吧！</p>
+        <div class="welcome-suggestions">
+          <button class="suggestion-chip">一天需要摄入多少蛋白质？</button>
+          <button class="suggestion-chip">减脂期间怎么吃？</button>
+          <button class="suggestion-chip">哪些食物富含维生素C？</button>
+          <button class="suggestion-chip">晚餐吃什么比较健康？</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Preview Bar -->
+    <div class="image-preview-bar" id="imagePreviewBar">
+      <div class="preview-thumbnail" id="previewThumbnail">
+        <img id="previewImg" src="" alt="预览">
+        <button class="preview-remove" id="previewRemove">&times;</button>
+      </div>
+      <span class="preview-filename" id="previewFilename"></span>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <button class="upload-btn" id="uploadBtn" title="上传图片">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </button>
+        <textarea id="chatInput" rows="1" placeholder="输入你的问题，或上传食物照片..."></textarea>
+        <button class="send-btn" id="sendBtn" title="发送">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Actions -->
+    <div class="chat-actions">
+      <button class="chat-action-btn" id="clearChatBtn">清空对话</button>
+    </div>
+
+    <!-- Hidden File Input -->
+    <input type="file" id="imageInput" accept="image/*" capture="environment">
+  </div>
+
+  <!-- Image Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="大图">
+  </div>
+
+  <!-- Config Modal -->
+  <div class="modal-overlay" id="configModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>API 配置</h3>
+        <button class="modal-close" id="closeModalBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">快捷预设</label>
+          <select class="form-select" id="presetSelect">
+            <option value="">自定义配置</option>
+            <option value="openai">OpenAI</option>
+            <option value="deepseek">DeepSeek</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">API 地址</label>
+          <input type="text" class="form-input" id="apiUrlInput" placeholder="https://api.openai.com/v1/chat/completions">
+        </div>
+        <div class="form-group">
+          <label class="form-label">模型名称</label>
+          <input type="text" class="form-input" id="modelInput" placeholder="gpt-4o">
+        </div>
+        <div class="form-group">
+          <label class="form-label">API Key</label>
+          <div class="form-input-group">
+            <input type="password" class="form-input" id="apiKeyInput" placeholder="sk-...">
+            <button class="form-input-toggle" id="toggleKeyBtn" title="显示/隐藏">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <p class="form-hint">API Key 仅存储在本地浏览器中，请勿在公共设备使用</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" id="testConnBtn">测试连接</button>
+        <button class="btn btn-primary" id="saveConfigBtn">保存配置</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/markdown.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
